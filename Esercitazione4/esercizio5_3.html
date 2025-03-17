@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indovina il Numero</title>
+    <link rel="stylesheet" href="esercizio5_3.css">
+</head>
+<body>
+    <h1>Gioco: Indovina il numero!</h1>
+    <p>Inserisci un numero tra 0 e 100:</p>
+    
+    <input type="number" id="tentativo" min="0" max="100">
+    <button onclick="controllaNumero()">Controlla</button>
+    
+    <p>Tentativi: <input type="text" id="conteggio" value="0" readonly></p>
+    <p id="messaggio"></p>
+    
+    <button onclick="nuovoGioco()">Nuovo Gioco</button>
+
+    <script src="esercizio5_3.js" defer></script>
+</body>
+</html>
