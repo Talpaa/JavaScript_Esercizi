@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatrice</title>
+    <link rel="stylesheet" href="esercizio5_3.css">
+</head>
+<body>
+
+    <h1>CALCOLATRICE</h1>
+
+    <div class="container">
+        <table>
+            <!-- Sezione Input -->
+            <tr>
+                <td>
+                    <div class="input-section">
+                        <input type="number" id="valoreA" placeholder="Numero A">
+                        <input type="number" id="valoreB" placeholder="Numero B">
+                    </div>
+                </td>
+                <!-- Sezione Bottoni -->
+                <td>
+                    <div class="button-section">
+                        <button onclick="som()">SOMMA</button>
+                        <button onclick="sot()">SOTTRAZIONE</button><br>
+                        <button onclick="molt()">MOLTIPLICAZIONE</button>
+                        <button onclick="div()">DIVISIONE</button>
+                    </div>
+                </td>
+            </tr>   
+        </table>     
+    </div>
+
+    <!-- Sezione Risultato -->
+    <div class="result-section">
+        <p>Risultato: <input type="text" id="risultato" value="0" readonly></p>
+        <button id="clear-button" onclick="nuovoCalcolo()">C</button>
+    </div>
+
+    <p id="messaggio"></p>
+
+    <script src="esercizio5_6.js" defer></script>
+</body>
+</html>

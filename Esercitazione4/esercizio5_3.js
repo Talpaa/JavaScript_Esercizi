@@ -1,9 +1,11 @@
 let numeroCasuale = Math.floor(Math.random() * 101); // Genera un numero tra 0 e 100
 let tentativi = 0;
 
-function controllaNumero() {
+const controllaNumero = () => {
     let inputUtente = document.getElementById("tentativo").value;
     let messaggio = document.getElementById("messaggio");
+
+    console.log("Valore di inputUtente:", inputUtente);
 
     if (inputUtente === "") {
         messaggio.textContent = "Inserisci un numero!";
@@ -12,7 +14,7 @@ function controllaNumero() {
 
     let numeroInserito = parseInt(inputUtente);
 
-    if (isNaN(numeroInserito) || numeroInserito < 0 || numeroInserito > 100) {
+    if (numeroInserito < 0 || numeroInserito > 100) {
         messaggio.textContent = "Numero non valido! Inserisci un valore tra 0 e 100.";
         return;
     }
@@ -29,7 +31,7 @@ function controllaNumero() {
     }
 }
 
-function nuovoGioco() {
+const nuovoGioco = () => {
     numeroCasuale = Math.floor(Math.random() * 101);
     tentativi = 0;
     document.getElementById("tentativo").value = "";
