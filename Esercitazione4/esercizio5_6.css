@@ -3,78 +3,105 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
+    flex-direction: column; /* Per posizionare il titolo sopra la calcolatrice */
 }
 
-/* Contenitore principale */
-.container {
-    display: flex;
-    gap: 20px;
-}
-
-/* Contenitore degli input */
-.input-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* Input di testo */
-input[type="number"] {
-    width: 120px;
-    padding: 8px;
-    margin: 5px 0;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
+/* Titolo */
+h1 {
     text-align: center;
+    margin-bottom: 20px; /* Distanza tra il titolo e il contenuto della calcolatrice */
 }
 
-/* Contenitore dei pulsanti */
-.button-section {
+/* Contenitore principale usando grid */
+.calculator-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: 1fr; /* Una sola colonna per input e risultato */
+    grid-template-rows: auto auto auto auto; /* 4 righe: input, bottoni, risultato e "C" */
+    gap: 15px;
+    justify-items: center;
+    align-items: center;
+    width: 400px; /* Imposta una larghezza per il contenitore */
 }
 
-/* Stile dei bottoni */
-button {
+/* Input numerico e risultato */
+/* Stile degli input di addendi */
+input[type="text"] {
+    width: 150px; /* Imposta una larghezza fissa per gli input */
+    padding: 12px; /* Aggiungi padding per una maggiore facilità d'uso */
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #007bff; /* Bordo blu per evidenziare gli input */
+    border-radius: 5px; /* Bordi arrotondati */
+    margin: 5px 0; /* Distanza tra gli input */
+    transition: border-color 0.3s ease; /* Transizione morbida per il bordo */
+}
+
+/* Stile del bordo al passaggio del mouse */
+input[type="text"]:focus {
+    border-color: #0056b3; /* Cambia il colore del bordo quando è selezionato */
+    outline: none; /* Rimuovi l'outline predefinito */
+}
+
+
+
+/* Griglia per i bottoni */
+.calculator-container button {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 15px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box; /* Assicura che il padding non influisca sulla larghezza */
 }
 
+/* Hover sui bottoni */
 button:hover {
     background-color: #0056b3;
 }
 
-/* Contenitore del risultato */
-.result-section {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+/* Pulsante "C" */
+#clear-button {
+    width: 50%;
+    margin-left: 0;
+}
+
+/* Bottoni disposti in 2 righe e 2 colonne */
+.calculator-container button:nth-child(3),
+.calculator-container button:nth-child(4),
+.calculator-container button:nth-child(5),
+.calculator-container button:nth-child(6) {
+    grid-column: span 1; /* Fa in modo che i bottoni siano divisi correttamente in due colonne */
+}
+
+/* Configurazione per i bottoni 2x2 */
+.calculator-container button:nth-child(3), 
+.calculator-container button:nth-child(4) {
+    grid-row: 2;
+}
+
+.calculator-container button:nth-child(5), 
+.calculator-container button:nth-child(6) {
+    grid-row: 3;
 }
 
 /* Risultato */
 #risultato {
-    width: 150px;
-    padding: 8px;
+    min-width: 150px;  /* Larghezza minima */
+    width: auto;  /* La larghezza si adatta dinamicamente */
+    padding: 12px;
     font-size: 16px;
-    border: 2px solid #ccc;
+    text-align: center;
+    border: 2px solid #007bff;
     border-radius: 5px;
     background-color: #eee;
     font-weight: bold;
-    text-align: center;
-}
-
-/* Pulsante "C" posizionato a destra del risultato */
-#clear-button {
-    margin-left: 10px;
+    transition: width 0.3s ease; /* Transizione fluida per l'ampiezza */
+    box-sizing: content-box; /* Assicura che il padding non influisca sulla larghezza */
 }
